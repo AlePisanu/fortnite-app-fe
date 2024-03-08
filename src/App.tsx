@@ -1,9 +1,11 @@
 import { useEffect } from "react";
 import "./App.scss";
-import { ChakraProvider } from "@chakra-ui/react";
+import { Box, ChakraProvider } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import i18n from "./communication/i18n";
 import AppRouter from "./AppRouter";
+import Navbar from "./components/molecules/Navbar";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   const { t } = useTranslation();
@@ -16,8 +18,7 @@ function App() {
   }, []);
   return (
     <ChakraProvider>
-      <AppRouter/>
-      <h1>{t("menuItemDashboard")}</h1>
+      <AppRouter />
     </ChakraProvider>
   );
 }

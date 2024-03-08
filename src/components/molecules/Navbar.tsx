@@ -1,68 +1,94 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 import {
-  Text,
-  Flex,
-  Spacer,
-  IconButton,
   useColorMode,
-  useColorModeValue,
-  useMediaQuery,
-} from '@chakra-ui/react';
-import { MoonIcon, SunIcon } from '@chakra-ui/icons';
-import { FaAlignJustify } from 'react-icons/fa';
-import { Icon } from '@chakra-ui/react';
+  Switch,
+  Flex,
+  Button,
+  IconButton,
+  Container,
+} from "@chakra-ui/react";
+import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { Link } from "react-router-dom";
+import { MenuList } from "../../utils/Menu";
 
-const Nav = ({ onOpen, ref }) => {
-  const [scroll, setScroll] = useState(false);
+const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const navBg = useColorModeValue('white', 'blackAlpha.200');
-  const [isLargerThanMD] = useMediaQuery('(min-width: 48em)');
-
-  const changeScroll = () =>
-    document.body.scrollTop > 80 || document.documentElement.scrollTop > 80
-      ? setScroll(true)
-      : setScroll(false);
-
-  window.addEventListener('scroll', changeScroll);
-
+  const isDark = colorMode === "dark";
+  const [display, changeDisplay] = useState("none");
   return (
-    <Flex
-      h="10vh"
-      alignItems="center"
-      p="6"
-      boxShadow={scroll ? 'base' : 'none'}
-      position="sticky"
-      top="0"
-      zIndex="sticky"
-      w="full"
-      bg={navBg}
-    >
-      <Text fontSize="xl" fontWeight="bold">
-        Chakra Sample
-      </Text>
+    <Flex>
+      <Flex position="fixed" top="1rem" right="1rem" align="center">
+        <Container maxW="1200px" width={"100%"}>
+          <Flex display={["none", "none", "flex", "flex"]}>
+            {MenuList.map((item, index) => (
+              <Link to={item.path}>
+                <Button
+                  as="a"
+                  variant="ghost"
+                  aria-label={item.name}
+                  my={5}
+                  w="100%"
+                >
+                  {item.name}
+                </Button>
+              </Link>
+            ))}
+          </Flex>
+        </Container>
+        {/* Mobile */}
+        <IconButton
+          aria-label="Open Menu"
+          size="lg"
+          mr={2}
+          icon={<HamburgerIcon />}
+          onClick={() => changeDisplay("flex")}
+          display={["flex", "flex", "none", "none"]}
+        />
+        <Switch color="green" isChecked={isDark} onChange={toggleColorMode} />
+      </Flex>
 
-      <Spacer />
-      
-      <Flex alignItems="center">
-        <IconButton mr="10" w={6} h={6} p={5} onClick={toggleColorMode}>
-          {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-        </IconButton>
+      {/* Mobile Content */}
+      <Flex
+        w="100vw"
+        display={display}
+        bgColor="gray.50"
+        zIndex={20}
+        h="100vh"
+        pos="fixed"
+        top="0"
+        left="0"
+        overflowY="auto"
+        flexDir="column"
+      >
+        <Flex justify="flex-end">
+          <IconButton
+            mt={2}
+            mr={2}
+            aria-label="Open Menu"
+            size="lg"
+            icon={<CloseIcon />}
+            onClick={() => changeDisplay("none")}
+          />
+        </Flex>
 
-        {isLargerThanMD ? (
-          <>
-            <a target="_blank" rel="noreferrer" href="https://appseed.us/apps/react/" fontSize="md" mr="10">
-              More Apps
-            </a>
-          </>
-        ) : (
-          <IconButton ref={ref} onClick={onOpen}>
-            <Icon as={FaAlignJustify} />
-          </IconButton>
-        )}
-
+        <Flex flexDir="column" align="center">
+          {MenuList.map((item, index) => (
+            <Link to={item.path}>
+              <Button
+                as="a"
+                variant="ghost"
+                aria-label={item.name}
+                my={5}
+                w="100%"
+              >
+                {item.name}
+              </Button>
+            </Link>
+          ))}
+        </Flex>
       </Flex>
     </Flex>
   );
 };
 
-export default Nav;
+export default Navbar;
