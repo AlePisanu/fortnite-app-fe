@@ -1,11 +1,23 @@
-import { Box, Grid, Heading } from "@chakra-ui/layout";
 import Hero from "../components/molecules/Hero/Hero";
 import { useTranslation } from "react-i18next";
 import CosmeticCardTemplate from "../components/templates/CosmeticCardTemplate/CosmeticCardTemplate";
+import { useEffect } from "react";
+import { getData } from "../api/Api";
+import { GetEndpoints } from "../api/endpoints";
+import { ApiResponse } from "../api/interfaces/ApiResponse";
+import { CosmeticsData } from "../api/interfaces/Cosmetics";
 
 const Dashboard = () => {
   const { t } = useTranslation();
   const handleClick = () => {};
+  useEffect(() => {
+    async function fetchData() {
+      await getData<ApiResponse<CosmeticsData>>(GetEndpoints('newCosmetics')).then(res => {
+        console.log(res)
+      })
+    }
+    fetchData();
+  }, [])
   return (
     <>
       <Hero
