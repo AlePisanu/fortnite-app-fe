@@ -53,14 +53,13 @@ const Navbar = () => {
           ))}
         </Flex>
 
-        <Flex align="center">
-          <Flex align="center" mx={2}>
+        <Flex align="center" display={["none", "none", "flex", "flex"]}>
+          <Flex align="center" mx={6}>
             <SunIcon/>
             <Switch
               color="green"
               isChecked={isDark}
               onChange={toggleColorMode}
-              display={["none", "none", "flex", "flex"]}
               mx={2}
             />
             <MoonIcon/>
@@ -77,12 +76,18 @@ const Navbar = () => {
           onClick={() => changeDisplay("flex")}
           display={["flex", "flex", "none", "none"]}
         />
-        <Switch
-          color="green"
-          isChecked={isDark}
-          onChange={toggleColorMode}
-          display={["flex", "flex", "none", "none"]}
-        />
+        <Flex align="center" display={["flex", "flex", "none", "none"]}>
+          <Flex align="center" mx={6}>
+            <SunIcon/>
+            <Switch
+              color="green"
+              isChecked={isDark}
+              onChange={toggleColorMode}
+              mx={2}
+            />
+            <MoonIcon/>
+          </Flex>
+        </Flex>
       </Flex>
 
       {/* Mobile Content */}
@@ -124,6 +129,7 @@ const Navbar = () => {
               </Button>
             </Link>
           ))}
+          <LangSwitch />
         </Flex>
       </Flex>
     </Box>

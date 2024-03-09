@@ -38,6 +38,7 @@ const Hero: React.FC<HeroProps> = ({
             color="white"
             fontFamily="Rubik Mono One"
             textShadow="-3px 3px 0px black"
+            textAlign={textPosition === "flex-start" ? "left" : "right"}
           >
             {title}
           </Heading>

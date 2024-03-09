@@ -9,18 +9,13 @@ const LangSwitch = () => {
   const toggleLang = () => {
     const newLanguage = i18n.language === "en" ? "it" : "en";
     i18n.changeLanguage(newLanguage);
-    setLang(!lang)
+    setLang(!lang);
   };
   return (
     <Flex alignItems="center">
-      <Text>{t("LangSwitchIT")}</Text>
-      <Switch
-        color="green"
-        isChecked={lang}
-        onChange={toggleLang}
-        mx={1}
-      />
-      <Text>{t("LangSwitchEN")}</Text>
+      <Text fontFamily="Rubik Mono One" fontSize={10}>{t("LangSwitchIT")}</Text>
+      <Switch color="green" isChecked={lang} onChange={toggleLang} mx={1} />
+      <Text fontFamily="Rubik Mono One" fontSize={10}>{t("LangSwitchEN")}</Text>
     </Flex>
   );
 };
