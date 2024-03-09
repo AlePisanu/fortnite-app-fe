@@ -1,14 +1,19 @@
 import React from "react";
-import { Box, Button, Container, Flex, Heading } from "@chakra-ui/react";
+import { Box, Button, Container, Flex, Heading, Text } from "@chakra-ui/react";
 
 interface HeroProps {
   backgroundImage: string;
   title: string;
   btnText: string;
-  onPress: Function
+  onPress: Function;
 }
 
-const Hero: React.FC<HeroProps> = ({ backgroundImage, title, btnText, onPress }) => {
+const Hero: React.FC<HeroProps> = ({
+  backgroundImage,
+  title,
+  btnText,
+  onPress,
+}) => {
   return (
     <Box
       bgImage={`url(${backgroundImage})`}
@@ -18,16 +23,22 @@ const Hero: React.FC<HeroProps> = ({ backgroundImage, title, btnText, onPress })
       height="85vh"
       display="flex"
       alignItems="center"
-      mb={20}
+      mb={5}
     >
       <Container maxW={"1200px"} px={20}>
-        <Flex justifyContent="flex-start" mb={10}>
-          <Heading maxW={500} as="h1" size="xl" color="white">
+        <Flex justifyContent="flex-start" mb={5}>
+          <Heading
+            maxW={500}
+            as="h1"
+            size="xl"
+            color="white"
+            fontFamily="Rubik Mono One"
+          >
             {title}
           </Heading>
         </Flex>
         <Button colorScheme="pink" size="lg" onClick={() => onPress()}>
-          {btnText}
+          <Text fontFamily="Luckiest Guy">{btnText}</Text>
         </Button>
       </Container>
     </Box>

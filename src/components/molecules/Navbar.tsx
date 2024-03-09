@@ -6,7 +6,6 @@ import {
   Button,
   IconButton,
   Box,
-  Image,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
@@ -34,7 +33,13 @@ const Navbar = () => {
         <Flex display={["none", "none", "flex", "flex"]}>
           {MenuList.map((item, index) => (
             <Link to={item.path} key={`menuD-${index}`}>
-              <Button variant="ghost" aria-label={item.name} fontSize={20} my={5} w="100%">
+              <Button
+                variant="ghost"
+                aria-label={item.name}
+                fontSize={20}
+                my={5}
+                w="100%"
+              >
                 {item.name}
               </Button>
             </Link>
@@ -78,7 +83,6 @@ const Navbar = () => {
         overflowY="auto"
         flexDir="column"
         p={5}
-        ml={5}
       >
         <Flex justify="flex-end">
           <IconButton

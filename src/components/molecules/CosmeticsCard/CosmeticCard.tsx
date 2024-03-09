@@ -10,13 +10,14 @@ import {
   ButtonGroup,
   Button,
 } from "@chakra-ui/react";
+import styles from './CosmeticCard.module.scss';
 
 type CosmeticCardProps = {
   imgSrc?: string;
   imgAlt?: string;
   title: string;
   description?: string;
-  btnAction: Function;
+  action?: Function;
 };
 
 const CosmeticCard = ({
@@ -24,29 +25,23 @@ const CosmeticCard = ({
   imgAlt,
   title,
   description,
-  btnAction
+  action = () => void 0
 }: CosmeticCardProps) => {
   return (
-    <Card maxW="sm">
-      <CardBody>
+    <Card className={styles.cosmeticCard} maxW="sm" onClick={() => action()} background="transparent">
+      <CardBody p={0}>
         <Image
           src={imgSrc}
           alt={imgAlt}
           borderRadius="lg"
         />
-        <Stack mt="6" spacing="3">
+        <Stack mt="1" py={2} spacing={1}>
           <Heading size="md">{title}</Heading>
           <Text>
             {description}
           </Text>
         </Stack>
       </CardBody>
-      <Divider />
-      <CardFooter>
-        <ButtonGroup spacing="2">
-          <Button variant="ghost" colorScheme="blue" onClick={() => btnAction()}></Button>
-        </ButtonGroup>
-      </CardFooter>
     </Card>
   );
 };
