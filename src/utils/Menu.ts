@@ -1,5 +1,5 @@
 import { routes } from "../communication/routes";
-import { Menu } from "../interfaces/Menu.interface";
+import { Menu } from "./interfaces/Menu.interface";
 
 export const MenuList: Menu[] = [
     {

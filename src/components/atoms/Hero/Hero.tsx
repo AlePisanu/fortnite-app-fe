@@ -6,6 +6,8 @@ interface HeroProps {
   title: string;
   btnText: string;
   onPress: Function;
+  textPosition: 'flex-start' | 'flex-end' | 'center';
+  btnPosition: 'flex-start' | 'flex-end' | 'center';
 }
 
 const Hero: React.FC<HeroProps> = ({
@@ -13,6 +15,8 @@ const Hero: React.FC<HeroProps> = ({
   title,
   btnText,
   onPress,
+  btnPosition = 'flex-start',
+  textPosition = 'flex-start',
 }) => {
   return (
     <Box
@@ -26,20 +30,23 @@ const Hero: React.FC<HeroProps> = ({
       mb={5}
     >
       <Container maxW={"1200px"} px={[4, 4, 20, 20]}>
-        <Flex justifyContent="flex-start" mb={5}>
+        <Flex justifyContent={textPosition} mb={5}>
           <Heading
             maxW={500}
             as="h1"
             size="xl"
             color="white"
             fontFamily="Rubik Mono One"
+            textShadow="-3px 3px 0px black"
           >
             {title}
           </Heading>
         </Flex>
-        <Button colorScheme="pink" size="lg" onClick={() => onPress()}>
-          <Text fontFamily="Luckiest Guy">{btnText}</Text>
-        </Button>
+        <Flex justifyContent={btnPosition}>
+          <Button colorScheme="pink" size="lg" onClick={() => onPress()}>
+            <Text fontFamily="Luckiest Guy">{btnText}</Text>
+          </Button>
+        </Flex>
       </Container>
     </Box>
   );

@@ -2,7 +2,12 @@
   "menuItemDashboard": "Test",
   "menuItemNews": "News",
   "menuItemCosmetics": "Cosmetici",
-  "heroTitle": "Scopri tutte le novità sul mondo di Fortnite",
-  "heroBtnText": "Scopri",
-  "dashboardCosmetics": "Cosmetici"
+  "heroTitleDashboard1": "Scopri tutte i nuovi cosmetici di Fortnite",
+  "heroBtnTextDashboard1": "Scopri",
+  "heroTitleDashboard2": "Scopri tutte le novità sul mondo di Fortnite",
+  "heroBtnTextDashboard2": "Scopri",
+  "dashboardCosmetics": "Cosmetici",
+  "FooterText": "Fatto con ♥ da Alessio Pisanu",
+  "LangSwitchIT": "it",
+  "LangSwitchEN": "en"
 }

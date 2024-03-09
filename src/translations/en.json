@@ -2,7 +2,12 @@
   "menuItemDashboard": "Dashboard",
   "menuItemNews": "News",
   "menuItemCosmetics": "Cosmetics",
-  "heroTitle": "Discover the latest news about the world of Fortnite.",
-  "heroBtnText": "Discover",
-  "dashboardCosmetics": "Cosmetics"
+  "heroTitleDashboard1": "Discover all the new cosmetics in Fortnite",
+  "heroBtnTextDashboard1": "Discover",
+  "heroTitleDashboard2": "Discover the latest news about the world of Fortnite",
+  "heroBtnTextDashboard2": "Discover",
+  "dashboardCosmetics": "Cosmetics",
+  "FooterText": "Made with ♥ by Alessio Pisanu",
+  "LangSwitchIT": "it",
+  "LangSwitchEN": "en"
 }

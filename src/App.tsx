@@ -4,7 +4,7 @@ import { Box, ChakraProvider, ColorModeScript } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import i18n from "./communication/i18n";
 import AppRouter from "./AppRouter";
-import Navbar from "./components/molecules/Navbar";
+import Navbar from "./components/molecules/Navbar/Navbar";
 import { BrowserRouter } from "react-router-dom";
 
 const App = () => {

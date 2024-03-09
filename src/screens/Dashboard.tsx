@@ -1,6 +1,6 @@
 import { Box, Grid, Heading } from "@chakra-ui/layout";
 import CosmeticCard from "../components/molecules/CosmeticsCard/CosmeticCard";
-import Hero from "../components/atoms/Hero";
+import Hero from "../components/atoms/Hero/Hero";
 import { useTranslation } from "react-i18next";
 
 const Dashboard = () => {
@@ -9,10 +9,12 @@ const Dashboard = () => {
   return (
     <>
       <Hero
-        title={t("heroTitle")}
+        title={t("heroTitleDashboard1")}
         backgroundImage="https://www.fortnite.com/images/creative-islands/creator-hero-fallback.jpg"
-        btnText={t("heroBtnText")}
+        btnText={t("heroBtnTextDashboard1")}
         onPress={handleClick}
+        btnPosition="flex-start"
+        textPosition="flex-start"
       />
       <Box mx={2}>
         <Heading maxW={500} as="h1" size="xl" fontFamily="Luckiest Guy">
@@ -84,6 +86,14 @@ const Dashboard = () => {
           />
         </Grid>
       </Box>
+      <Hero
+        title={t("heroTitleDashboard2")}
+        backgroundImage="https://cdn2.unrealengine.com/keyart-overscan-nologo-2-2276x1280-aa06338f9aae.jpg"
+        btnText={t("heroBtnTextDashboard2")}
+        onPress={handleClick}
+        btnPosition="flex-end"
+        textPosition="flex-end"
+      />
     </>
   );
 };

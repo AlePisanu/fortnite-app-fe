@@ -7,10 +7,11 @@ import {
   IconButton,
   Box,
 } from "@chakra-ui/react";
-import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { Link, useLocation } from "react-router-dom";
-import { MenuList } from "../../utils/Menu";
-import Logo from "../atoms/Logo";
+import { MenuList } from "../../../utils/Menu";
+import Logo from "../../atoms/Logo/Logo";
+import LangSwitch from "../../atoms/LangSwitch/LangSwitch";
 
 const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -52,12 +53,20 @@ const Navbar = () => {
           ))}
         </Flex>
 
-        <Switch
-          color="green"
-          isChecked={isDark}
-          onChange={toggleColorMode}
-          display={["none", "none", "flex", "flex"]}
-        />
+        <Flex align="center">
+          <Flex align="center" mx={2}>
+            <SunIcon/>
+            <Switch
+              color="green"
+              isChecked={isDark}
+              onChange={toggleColorMode}
+              display={["none", "none", "flex", "flex"]}
+              mx={2}
+            />
+            <MoonIcon/>
+          </Flex>
+          <LangSwitch />
+        </Flex>
 
         {/* Mobile */}
         <IconButton

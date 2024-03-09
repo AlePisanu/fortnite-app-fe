@@ -4,10 +4,11 @@ import { Route, MemoryRouter as Router, Routes } from "react-router-dom";
 import i18n from "./communication/i18n";
 import { routes } from "./communication/routes";
 import Dashboard from "./screens/Dashboard";
-import Navbar from "./components/molecules/Navbar";
+import Navbar from "./components/molecules/Navbar/Navbar";
 import { Box, Container } from "@chakra-ui/react";
 import News from "./screens/News";
 import Cosmetics from "./screens/Cosmetics";
+import Footer from "./components/molecules/Footer/Footer";
 
 const AppRouter = () => {
   useEffect(() => {
@@ -25,6 +26,7 @@ const AppRouter = () => {
         <Route path={routes.NEWS} element={<News />} />
         <Route path={routes.COSMETICS} element={<Cosmetics />} />
       </Routes>
+      <Footer/>
     </Router>
   );
 };
