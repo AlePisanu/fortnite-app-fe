@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import "./App.scss";
-import { Box, ChakraProvider } from "@chakra-ui/react";
+import { Box, ChakraProvider, ColorModeScript } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import i18n from "./communication/i18n";
 import AppRouter from "./AppRouter";
@@ -9,6 +9,8 @@ import { BrowserRouter } from "react-router-dom";
 
 const App = () => {
   const { t } = useTranslation();
+  const defaultColorMode = "dark";
+
   useEffect(() => {
     sessionStorage.setItem("lang", "it");
     const currLang = sessionStorage.getItem("lang")?.toString();
@@ -18,9 +20,10 @@ const App = () => {
   }, []);
   return (
     <ChakraProvider>
+      <ColorModeScript initialColorMode={defaultColorMode} />
       <AppRouter />
     </ChakraProvider>
   );
-}
+};
 
 export default App;

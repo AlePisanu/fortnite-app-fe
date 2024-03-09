@@ -15,7 +15,7 @@ const Dashboard = () => {
         onPress={handleClick}
       />
       <Box mx={2}>
-        <Heading maxW={500} as="h1" size="xl" color="white" fontFamily="Luckiest Guy">
+        <Heading maxW={500} as="h1" size="xl" fontFamily="Luckiest Guy">
           {t("dashboardCosmetics")}
         </Heading>
         <Grid templateColumns="repeat(5, 1fr)" gap={6}>

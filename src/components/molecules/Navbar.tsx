@@ -8,7 +8,7 @@ import {
   Box,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { MenuList } from "../../utils/Menu";
 import Logo from "../atoms/Logo";
 
@@ -16,6 +16,7 @@ const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const isDark = colorMode === "dark";
   const [display, changeDisplay] = useState("none");
+  const location = useLocation();
   return (
     <Box
       width="100%"
@@ -25,7 +26,11 @@ const Navbar = () => {
       p={5}
     >
       <Logo
-        src="https://media.graphassets.com/ddDDGPriQHC1OyGYRAKO"
+        src={
+          isDark
+            ? "https://media.graphassets.com/ddDDGPriQHC1OyGYRAKO"
+            : "https://i.pinimg.com/originals/9d/a2/c2/9da2c25957e90f0dbdaeda961af1e553.png"
+        }
         altName="Logo"
         size="90px"
       />
@@ -39,6 +44,7 @@ const Navbar = () => {
                 fontSize={20}
                 my={5}
                 w="100%"
+                color={location.pathname === item.path ? "pink" : "gray.500"}
               >
                 {item.name}
               </Button>
@@ -98,7 +104,13 @@ const Navbar = () => {
         <Flex flexDir="column" align="center">
           {MenuList.map((item, index) => (
             <Link to={item.path} key={`menuM-${index}`}>
-              <Button variant="ghost" aria-label={item.name} my={5} w="100%">
+              <Button
+                variant="ghost"
+                aria-label={item.name}
+                my={5}
+                w="100%"
+                color={location.pathname === item.path ? "pink" : "gray.500"}
+              >
                 {item.name}
               </Button>
             </Link>

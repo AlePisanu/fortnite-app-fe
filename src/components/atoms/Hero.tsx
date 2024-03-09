@@ -25,7 +25,7 @@ const Hero: React.FC<HeroProps> = ({
       alignItems="center"
       mb={5}
     >
-      <Container maxW={"1200px"} px={20}>
+      <Container maxW={"1200px"} px={[4, 4, 20, 20]}>
         <Flex justifyContent="flex-start" mb={5}>
           <Heading
             maxW={500}
