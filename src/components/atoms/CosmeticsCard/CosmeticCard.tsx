@@ -28,7 +28,7 @@ const CosmeticCard = ({
   action = () => void 0
 }: CosmeticCardProps) => {
   return (
-    <Card className={styles.cosmeticCard} maxW="sm" onClick={() => action()} background="transparent">
+    <Card className={styles.cosmeticCard} boxShadow="none" maxW="200px" minW="200px" onClick={() => action()} background="transparent">
       <CardBody p={0}>
         <Image
           src={imgSrc}

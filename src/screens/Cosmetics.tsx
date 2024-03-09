@@ -1,5 +1,5 @@
 import { Box, Grid } from "@chakra-ui/layout";
-import CosmeticCard from "../components/molecules/CosmeticsCard/CosmeticCard";
+import CosmeticCard from "../components/atoms/CosmeticsCard/CosmeticCard";
 
 const Cosmetics = () => {
   return (
