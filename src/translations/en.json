@@ -1,5 +1,7 @@
 {
   "menuItemDashboard": "Dashboard",
   "menuItemNews": "News",
-  "menuItemCosmetics": "Cosmetics"
+  "menuItemCosmetics": "Cosmetics",
+  "heroTitle": "Discover the latest news about the world of Fortnite.",
+  "heroBtnText": "Discover"
 }

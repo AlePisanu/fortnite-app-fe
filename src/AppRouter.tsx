@@ -20,15 +20,13 @@ const AppRouter = () => {
   return (
     <Router>
       <Navbar />
-      <Container maxW="1200px" width={"100%"}>
-        <Routes>
-          <Route path={routes.DASHBOARD} element={<Dashboard />} />
-          <Route path={routes.NEWS} element={<News />} />
-          <Route path={routes.COSMETICS} element={<Cosmetics />} />
-        </Routes>
-      </Container>
+      <Routes>
+        <Route path={routes.DASHBOARD} element={<Dashboard />} />
+        <Route path={routes.NEWS} element={<News />} />
+        <Route path={routes.COSMETICS} element={<Cosmetics />} />
+      </Routes>
     </Router>
   );
-}
+};
 
 export default AppRouter;
