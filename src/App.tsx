@@ -7,7 +7,7 @@ import AppRouter from "./AppRouter";
 import Navbar from "./components/molecules/Navbar";
 import { BrowserRouter } from "react-router-dom";
 
-function App() {
+const App = () => {
   const { t } = useTranslation();
   useEffect(() => {
     sessionStorage.setItem("lang", "it");

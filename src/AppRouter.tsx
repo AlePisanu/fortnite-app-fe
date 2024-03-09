@@ -9,7 +9,7 @@ import { Box, Container } from "@chakra-ui/react";
 import News from "./screens/News";
 import Cosmetics from "./screens/Cosmetics";
 
-function AppRouter() {
+const AppRouter = () => {
   useEffect(() => {
     sessionStorage.setItem("lang", "it");
     const currLang = sessionStorage.getItem("lang")?.toString();

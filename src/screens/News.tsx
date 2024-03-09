@@ -1,7 +1,7 @@
 import { Box, Grid } from "@chakra-ui/layout";
 import CosmeticCard from "../components/molecules/CosmeticCard";
 
-function News() {
+const News = () => {
   return (
     <Grid templateColumns="repeat(5, 1fr)" m={5} gap={6}>
       <Box boxSize="sm">
