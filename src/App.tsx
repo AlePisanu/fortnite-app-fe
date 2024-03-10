@@ -1,26 +1,24 @@
-import { useEffect } from "react";
 import "./App.scss";
-import { Box, ChakraProvider, ColorModeScript } from "@chakra-ui/react";
-import { useTranslation } from "react-i18next";
-import i18n from "./communication/i18n";
+import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
 import AppRouter from "./AppRouter";
-import Navbar from "./components/molecules/Navbar/Navbar";
-import { BrowserRouter } from "react-router-dom";
+import DataLoader from "./DataLoader";
+import { useEffect } from "react";
+import i18n from "./communication/i18n";
 
 const App = () => {
-  const { t } = useTranslation();
   const defaultColorMode = "dark";
-
   useEffect(() => {
-    sessionStorage.setItem("lang", "it");
-    const currLang = sessionStorage.getItem("lang")?.toString();
+    const currLang = sessionStorage.getItem("lang");
     if (currLang) {
       i18n.changeLanguage(currLang);
+    } else {
+      sessionStorage.setItem("lang", "it");
     }
   }, []);
   return (
     <ChakraProvider>
       <ColorModeScript initialColorMode={defaultColorMode} />
+      <DataLoader />
       <AppRouter />
     </ChakraProvider>
   );

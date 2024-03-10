@@ -9,5 +9,6 @@
   "dashboardCosmetics": "Cosmetics",
   "FooterText": "Made with ♥ by Alessio Pisanu",
   "LangSwitchIT": "it",
-  "LangSwitchEN": "en"
+  "LangSwitchEN": "en",
+  "ModalErrorApi": "Unexpected error during page load."
 }

@@ -9,5 +9,6 @@
   "dashboardCosmetics": "Cosmetici",
   "FooterText": "Fatto con ♥ da Alessio Pisanu",
   "LangSwitchIT": "it",
-  "LangSwitchEN": "en"
+  "LangSwitchEN": "en",
+  "ModalErrorApi": "Errore imprevisto durante il caricamento della pagina."
 }
