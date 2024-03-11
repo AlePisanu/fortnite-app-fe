@@ -25,7 +25,7 @@ const DataLoader = () => {
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     const getApiData = async () => {
@@ -48,7 +48,7 @@ const DataLoader = () => {
     };
 
     getApiData();
-  }, [dispatch, onOpen]);
+  }, [dispatch, onOpen, i18n.language]);
 
   return (
     <>

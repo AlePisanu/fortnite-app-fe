@@ -1,20 +1,19 @@
-import { useTranslation } from "react-i18next";
 import CosmeticCard from "../../atoms/CosmeticsCard/CosmeticCard";
 import styles from "./CosmeticCardTemplate.module.scss";
 import { Flex, Box, Heading } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
 import { Cosmetic } from "../../../utils/interfaces/Cosmetic.interface";
 
 //TODO set Props considering an array of Cards
 type CosmeticCardTemplateProps = {
   title: string;
+  cards: Cosmetic[]
 };
 
 const CosmeticCardTemplate: React.FC<CosmeticCardTemplateProps> = ({
   title,
+  cards
 }) => {
   const handleClick = () => {};
-  const cards: Cosmetic[] = useSelector((state: any) => state.cosmeticsConfig.cosmetics);
   return (
     <Box mx={4} mb={4}>
       <Heading maxW={500} as="h1" size="xl" fontFamily="Luckiest Guy">
