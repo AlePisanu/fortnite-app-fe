@@ -2,7 +2,7 @@ import CosmeticCard from "../../atoms/CosmeticsCard/CosmeticCard";
 import styles from "./CosmeticCardTemplate.module.scss";
 import { Flex, Box, Heading, Grid, Button, Tag } from "@chakra-ui/react";
 import { Cosmetic } from "../../../utils/interfaces/Cosmetic.interface";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 import { useSelector } from "react-redux";
 import { CosmeticsType } from "../../../api/interfaces/Cosmetics";
@@ -18,12 +18,16 @@ const CosmeticCardTemplate: React.FC<CosmeticCardTemplateProps> = ({
   const cards: Cosmetic[] = useSelector(
     (state: any) => state.cosmeticsConfig.cosmetics
   );
-  const [customCards, setCustomCards] = useState([...cards]);
+  const [customCards, setCustomCards] = useState<Cosmetic[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = () => setIsOpen(!isOpen);
   let categories: CosmeticsType[] = useSelector(
     (state: any) => state.cosmeticsConfig.cosmeticsCategory
   );
+  useEffect(() => {
+    setCustomCards(cards);
+    console.log("entro")
+  }, [cards]);
   const [currentFilter, setCurrentFilter] = useState<string[]>([]);
   const handleChipClick = (value: string) => {
     let filter: string[];
@@ -37,15 +41,15 @@ const CosmeticCardTemplate: React.FC<CosmeticCardTemplateProps> = ({
     setCustomCards(
       filter.length === 0
         ? cards
-        : customCards.filter((i) => filter.includes(i.type.value))
+        : cards.filter((i) => filter.includes(i.type.value))
     );
   };
   return (
     <Box mx={4} mb={10}>
-      <Heading maxW={500} as="h1" size="xl" fontFamily="Luckiest Guy">
+      <Heading maxW={500} as="h1" size="xl" mb={5} fontFamily="Luckiest Guy">
         {title}
       </Heading>
-      <Flex flexFlow="wrap">
+      <Flex flexFlow="wrap" mb={10}>
         {categories.map((i, index) => (
           <Tag
             key={`tag-${index}`}
