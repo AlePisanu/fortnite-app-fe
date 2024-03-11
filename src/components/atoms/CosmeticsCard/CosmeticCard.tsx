@@ -1,14 +1,10 @@
 import {
   Card,
   CardBody,
-  CardFooter,
   Image,
   Stack,
   Heading,
-  Text,
-  Divider,
-  ButtonGroup,
-  Button,
+  Text
 } from "@chakra-ui/react";
 import styles from './CosmeticCard.module.scss';
 

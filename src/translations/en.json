@@ -7,8 +7,13 @@
   "heroTitleDashboard2": "Discover the latest news about the world of Fortnite",
   "heroBtnTextDashboard2": "Discover",
   "dashboardCosmetics": "Cosmetics",
+  "dashboardNews": "News",
   "FooterText": "Made with ♥ by Alessio Pisanu",
   "LangSwitchIT": "it",
   "LangSwitchEN": "en",
-  "ModalErrorApi": "Unexpected error during page load."
+  "ModalErrorApi": "Unexpected error during page load.",
+  "NewsCategoryBR": "Battle Royale",
+  "NewsCategorySTW": "Save the world",
+  "NewsCategoryCREATIVE": "Creative",
+  "NewsCategoryND": "N/D"
 }

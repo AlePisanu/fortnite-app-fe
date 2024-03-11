@@ -1,5 +1,8 @@
 import { CosmeticsItem, CosmeticsType } from "../api/interfaces/Cosmetics";
+import { NewsData } from "../api/interfaces/News";
+import { NewsCategories } from "./Constants";
 import { Cosmetic } from "./interfaces/Cosmetic.interface";
+import { News } from "./interfaces/News.interface";
 
 export const mapCosmetics = (data: CosmeticsItem[]): Cosmetic[] => {
   return data.map((i) => ({
@@ -26,4 +29,63 @@ export const mapCosmeticsCategories = (
     new Set(mappedData.map((obj) => JSON.stringify(obj)))
   ).map((str) => JSON.parse(str));
   return uniqueArray;
+};
+
+export const mapNews = (data: NewsData): News[] => {
+  const brArray: News[] = data?.br?.motds
+    ? data?.br?.motds?.map((i) => {
+        return {
+          id: i.id,
+          title: i.title,
+          tabTitle: i.tabTitle,
+          body: i.body,
+          image: i.image,
+          tileImage: i.tileImage,
+          sortingPriority: i.sortingPriority,
+          hidden: i.hidden,
+          category: NewsCategories.BR.toString(),
+        };
+      })
+    : [];
+  const stwArray: News[] = data?.stw?.motds
+    ? data?.stw?.motds?.map((i) => {
+        return {
+          id: i.id,
+          title: i.title,
+          tabTitle: i.tabTitle,
+          body: i.body,
+          image: i.image,
+          tileImage: i.tileImage,
+          sortingPriority: i.sortingPriority,
+          hidden: i.hidden,
+          category: NewsCategories.STW.toString(),
+        };
+      })
+    : [];
+  const creativeArray: News[] = data?.creative?.motds
+    ? data?.creative?.motds?.map((i) => {
+        return {
+          id: i.id,
+          title: i.title,
+          tabTitle: i.tabTitle,
+          body: i.body,
+          image: i.image,
+          tileImage: i.tileImage,
+          sortingPriority: i.sortingPriority,
+          hidden: i.hidden,
+          category: NewsCategories.CREATIVE.toString(),
+        };
+      })
+    : [];
+  return [...brArray, ...stwArray, ...creativeArray];
+};
+
+export const GetNewsCategoryName = (val: string): string => {
+  return val === NewsCategories.BR.toString()
+    ? "NewsCategoryBR"
+    : val === NewsCategories.STW.toString()
+    ? "NewsCategorySTW"
+    : val === NewsCategories.CREATIVE
+    ? "NewsCategoryCREATIVE"
+    : "NewsCategoryND";
 };

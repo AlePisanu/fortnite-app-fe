@@ -7,8 +7,13 @@
   "heroTitleDashboard2": "Scopri tutte le novità sul mondo di Fortnite",
   "heroBtnTextDashboard2": "Scopri",
   "dashboardCosmetics": "Cosmetici",
+  "dashboardNews": "News",
   "FooterText": "Fatto con ♥ da Alessio Pisanu",
   "LangSwitchIT": "it",
   "LangSwitchEN": "en",
-  "ModalErrorApi": "Errore imprevisto durante il caricamento della pagina."
+  "ModalErrorApi": "Errore imprevisto durante il caricamento della pagina.",
+  "NewsCategoryBR": "Battle Royale",
+  "NewsCategorySTW": "Salva il mondo",
+  "NewsCategoryCREATIVE": "Creativa",
+  "NewsCategoryND": "N/D"
 }
