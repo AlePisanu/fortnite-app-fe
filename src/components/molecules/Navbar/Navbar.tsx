@@ -9,7 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { Link, useLocation } from "react-router-dom";
-import { MenuList } from "../../../utils/Menu";
+import { MenuList } from "../../../utils/Constants";
 import Logo from "../../atoms/Logo/Logo";
 import LangSwitch from "../../atoms/LangSwitch/LangSwitch";
 

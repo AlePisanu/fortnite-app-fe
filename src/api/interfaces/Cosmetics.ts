@@ -15,7 +15,7 @@ export interface CosmeticsItem {
   rarity: CosmeticsRarity;
   series?: CosmeticsSeries;
   set?: CosmeticsSet;
-  introduction?: CosmeticsIntroduction;
+  introduction?: CosmeticsIntroduction | undefined;
   images: CosmeticsImages;
   variants?: CosmeticsVariant[];
   searchTags: any;

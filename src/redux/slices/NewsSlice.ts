@@ -9,7 +9,7 @@ export const newsConfigSlice = createSlice({
   initialState,
   reducers: {
     setNews: (state, action) => {
-      state.news = action.payload
+      state.news = action.payload;
     },
     reset: () => initialState
   }

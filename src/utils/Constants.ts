@@ -15,3 +15,5 @@ export const MenuList: Menu[] = [
         name: "Cosmetics"
     }
 ]
+
+export const NewsCategories = ["br", "creative", "stw"];

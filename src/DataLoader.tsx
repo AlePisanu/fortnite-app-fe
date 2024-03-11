@@ -1,21 +1,18 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import i18n from "./communication/i18n";
 import { getData } from "./api/Api";
 import { ApiResponse } from "./api/interfaces/ApiResponse";
 import { CosmeticsData } from "./api/interfaces/Cosmetics";
 import { GetEndpoints } from "./api/endpoints";
 import { setNews } from "./redux/slices/NewsSlice";
-import { setCosmetics } from "./redux/slices/CosmeticsSlice";
+import { setCosmetics, setCosmeticsCategories } from "./redux/slices/CosmeticsSlice";
 import FullScreenLoader from "./components/atoms/FullScreenLoader/FullScreenLoader";
 import { NewsData } from "./api/interfaces/News";
 import {
-  Button,
   Modal,
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
   useDisclosure,
@@ -42,6 +39,7 @@ const DataLoader = () => {
 
         dispatch(setNews(newsResponse.data));
         dispatch(setCosmetics(cosmeticsResponse.data.items));
+        dispatch(setCosmeticsCategories(cosmeticsResponse.data.items));
       } catch (error) {
         onOpen();
       } finally {
