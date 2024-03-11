@@ -26,7 +26,7 @@ const CosmeticCardTemplate: React.FC<CosmeticCardTemplateProps> = ({
   );
   useEffect(() => {
     setCustomCards(cards);
-    console.log("entro")
+    console.log("entro");
   }, [cards]);
   const [currentFilter, setCurrentFilter] = useState<string[]>([]);
   const handleChipClick = (value: string) => {
@@ -80,16 +80,21 @@ const CosmeticCardTemplate: React.FC<CosmeticCardTemplateProps> = ({
           gap={6}
           overflow="hidden"
         >
-          {customCards.map((card, index) => (
-            <CosmeticCard
-              key={`card-${index}`}
-              imgSrc={card.image}
-              imgAlt={card.name.replace(/\s/g, "_")}
-              action={() => true}
-              title={card.name}
-              description={card.description}
-            />
-          ))}
+          {customCards.map((card, index) =>
+            card.name === "TBD" ||
+            card.description === "TBD" ||
+            card.name === "null" ||
+            card.description === "null" ? null : (
+              <CosmeticCard
+                key={`card-${index}`}
+                imgSrc={card.image}
+                imgAlt={card.name.replace(/\s/g, "_")}
+                action={() => true}
+                title={card.name}
+                description={card.description}
+              />
+            )
+          )}
         </Grid>
         <Button
           onClick={handleClick}
