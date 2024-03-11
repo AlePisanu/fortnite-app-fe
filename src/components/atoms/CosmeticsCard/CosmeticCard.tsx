@@ -28,16 +28,17 @@ const CosmeticCard = ({
   action = () => void 0
 }: CosmeticCardProps) => {
   return (
-    <Card className={styles.cosmeticCard} boxShadow="none" maxW="200px" minW="200px" onClick={() => action()} background="transparent">
+    <Card className={styles.cosmeticCard} boxShadow="none" onClick={() => action()} background="transparent">
       <CardBody p={0} objectFit="contain">
         <Image
           src={imgSrc}
           alt={imgAlt}
           borderRadius="lg"
+          maxW="100px"
         />
         <Stack mt="1" py={2} spacing={1}>
-          <Heading size="md">{title}</Heading>
-          <Text>
+          <Heading size="xs">{title}</Heading>
+          <Text size="xs" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
             {description}
           </Text>
         </Stack>

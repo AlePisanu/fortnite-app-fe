@@ -17,10 +17,13 @@ export const mapCosmetics = (data: CosmeticsItem[]): Cosmetic[] => {
 export const mapCosmeticsCategories = (
   data: CosmeticsItem[]
 ): CosmeticsType[] => {
-  // TODO remove duplicates
-  return data.map((i) => ({
+  const mappedData = data.map((i) => ({
     value: i.type.value,
     displayValue: i.type.displayValue,
     backendValue: i.type.backendValue,
   }));
+  let uniqueArray = Array.from(
+    new Set(mappedData.map((obj) => JSON.stringify(obj)))
+  ).map((str) => JSON.parse(str));
+  return uniqueArray;
 };

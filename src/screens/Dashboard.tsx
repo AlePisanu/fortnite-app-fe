@@ -6,10 +6,6 @@ import { useSelector } from "react-redux";
 const Dashboard = () => {
   const { t } = useTranslation();
   const handleClick = () => {};
-
-  const cards: Cosmetic[] = useSelector(
-    (state: any) => state.cosmeticsConfig.cosmetics
-  );
   return (
     <>
       <Hero
@@ -20,9 +16,7 @@ const Dashboard = () => {
         btnPosition="flex-start"
         textPosition="flex-start"
       />
-      <CosmeticCardTemplate title={t("dashboardCosmetics")} cards={cards}/>
-      <CosmeticCardTemplate title={t("dashboardCosmetics")} cards={cards}/>
-      <CosmeticCardTemplate title={t("dashboardCosmetics")} cards={cards}/>
+      <CosmeticCardTemplate title={t("dashboardCosmetics")}/>
       <Hero
         title={t("heroTitleDashboard2")}
         backgroundImage="https://cdn2.unrealengine.com/keyart-overscan-nologo-2-2276x1280-aa06338f9aae.jpg"
