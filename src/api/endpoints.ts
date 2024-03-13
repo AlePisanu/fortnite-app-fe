@@ -7,6 +7,7 @@ export const GetEndpoints = (endpoint: string) => {
     const endpoints: EndpointType = {
         newCosmetics: `https://fortnite-api.com/v2/cosmetics/br/new?language=${lang}`,
         news: `https://fortnite-api.com/v2/news?language=${lang}`,
+        latest: `https://fortnite-api.com/v2/cosmetics/br?language=${lang}`,
     }
     return endpoints[endpoint] || "";
 }
