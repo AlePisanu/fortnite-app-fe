@@ -15,5 +15,7 @@
   "NewsCategoryBR": "Battle Royale",
   "NewsCategorySTW": "Salva il mondo",
   "NewsCategoryCREATIVE": "Creativa",
-  "NewsCategoryND": "N/D"
+  "NewsCategoryND": "N/D",
+  "ArticleCategoryText": "Categoria: ",
+  "NotFoundText": "Nessun risultato trovato."
 }

@@ -1,31 +1,32 @@
-import styles from "./NewsCardTemplate.module.scss";
-import { Flex, Box, Heading, Grid, Button, Tag } from "@chakra-ui/react";
-import { Cosmetic } from "../../../utils/interfaces/Cosmetic.interface";
+import { Box, Heading, Grid } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 import { useSelector } from "react-redux";
-import { CosmeticsType } from "../../../api/interfaces/Cosmetics";
 import NewsCard from "../../atoms/NewsCard/NewsCard";
 import { NewsData } from "../../../api/interfaces/News";
 import { News } from "../../../utils/interfaces/News.interface";
 import { mapNews } from "../../../utils/Mapper";
+import { useNavigate } from "react-router-dom";
+import { routes } from "../../../communication/routes";
 
-//TODO set Props considering an array of Cards
 type NewsCardTemplateProps = {
   title: string;
 };
 
-const NewsCardTemplate: React.FC<NewsCardTemplateProps> = ({ title }) => {
+const NewsCardTemplate = ({ title }: NewsCardTemplateProps) => {
   const [customCards, setCustomCards] = useState<News[]>([]);
   const cards: NewsData = useSelector((state: any) => state.newsConfig.news);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (cards && Object.keys(cards).length > 0) {
-      console.log(cards);
       const remappedCards = mapNews(cards);
-      setCustomCards(remappedCards);
+      setCustomCards(remappedCards.slice(0, 6));
     }
   }, [cards]);
+
+  const handleGoToNew = (id: string) => {
+    navigate(`${routes.NEWS}/${id}`);
+  };
   return (
     <Box mx={4} mb={10}>
       <Heading maxW={500} as="h1" size="xl" mb={5} fontFamily="Luckiest Guy">
@@ -45,7 +46,7 @@ const NewsCardTemplate: React.FC<NewsCardTemplateProps> = ({ title }) => {
             key={`card-${index}`}
             imgSrc={card.image}
             imgAlt={card.title.replace(/\s/g, "_")}
-            action={() => true}
+            action={() => handleGoToNew(card.id)}
             title={card.title}
             category={card.category}
           />

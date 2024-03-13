@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  news: []
+  news: [],
 };
 
 export const newsConfigSlice = createSlice({
@@ -11,15 +11,12 @@ export const newsConfigSlice = createSlice({
     setNews: (state, action) => {
       state.news = action.payload;
     },
-    reset: () => initialState
-  }
+    reset: () => initialState,
+  },
 });
 
 // ACTION
-export const {
-  setNews,
-  reset
-} = newsConfigSlice.actions;
+export const { setNews, reset } = newsConfigSlice.actions;
 
 // REDUCER
 export default newsConfigSlice.reducer;

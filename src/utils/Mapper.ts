@@ -44,6 +44,7 @@ export const mapNews = (data: NewsData): News[] => {
           sortingPriority: i.sortingPriority,
           hidden: i.hidden,
           category: NewsCategories.BR.toString(),
+          date: i?.date,
         };
       })
     : [];

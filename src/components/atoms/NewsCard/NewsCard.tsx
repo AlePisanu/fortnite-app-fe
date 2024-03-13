@@ -4,7 +4,6 @@ import {
   Image,
   Stack,
   Heading,
-  Divider,
   Tag,
   TagLabel,
   CardFooter,
@@ -27,17 +26,24 @@ const NewsCard = ({
   category,
 }: NewsCardProps) => {
   return (
-    <Card maxW="sm">
+    <Card
+      className={styles.newsCard}
+      ml="auto"
+      mr="auto"
+      maxW="sm"
+      onClick={() => action()}
+    >
       <CardBody>
         <Image src={imgSrc} alt={imgAlt} borderRadius="lg" />
         <Stack mt="6" spacing="3">
           <Heading size="md">{title}</Heading>
         </Stack>
       </CardBody>
-      <Divider />
       <CardFooter>
         <Tag size="lg" colorScheme="pink" borderRadius="full">
-          <TagLabel>{category}</TagLabel>
+          <TagLabel fontWeight="bold" textTransform="uppercase">
+            {category}
+          </TagLabel>
         </Tag>
       </CardFooter>
     </Card>

@@ -1,9 +1,8 @@
-import React from "react";
 import { Spinner, Box } from "@chakra-ui/react";
 
 type FullScreenLoaderProps = {
-    isLoading: boolean
-  };
+  isLoading: boolean;
+};
 
 const FullScreenLoader = ({ isLoading = false }: FullScreenLoaderProps) => {
   return (

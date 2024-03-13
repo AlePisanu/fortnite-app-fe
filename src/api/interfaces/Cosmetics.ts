@@ -7,6 +7,15 @@ export interface CosmeticsData {
   items: CosmeticsItem[];
 }
 
+export interface CosmeticsNewData {
+  build: string;
+  previousBuild: string;
+  hash: string;
+  date: string;
+  lastAddition: string;
+  items: CosmeticsItem[];
+}
+
 export interface CosmeticsItem {
   id: string;
   name: string;

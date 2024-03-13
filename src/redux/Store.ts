@@ -1,6 +1,6 @@
-import { configureStore } from '@reduxjs/toolkit';
-import newsConfigReducer from './slices/NewsSlice';
-import cosmeticsConfigReducer from './slices/CosmeticsSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import newsConfigReducer from "./slices/NewsSlice";
+import cosmeticsConfigReducer from "./slices/CosmeticsSlice";
 
 export const store = configureStore({
   reducer: {

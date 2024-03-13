@@ -55,14 +55,14 @@ const Navbar = () => {
 
         <Flex align="center" display={["none", "none", "flex", "flex"]}>
           <Flex align="center" mx={6}>
-            <SunIcon/>
+            <SunIcon />
             <Switch
               color="green"
               isChecked={isDark}
               onChange={toggleColorMode}
               mx={2}
             />
-            <MoonIcon/>
+            <MoonIcon />
           </Flex>
           <LangSwitch />
         </Flex>
@@ -78,14 +78,14 @@ const Navbar = () => {
         />
         <Flex align="center" display={["flex", "flex", "none", "none"]}>
           <Flex align="center" mx={6}>
-            <SunIcon/>
+            <SunIcon />
             <Switch
               color="green"
               isChecked={isDark}
               onChange={toggleColorMode}
               mx={2}
             />
-            <MoonIcon/>
+            <MoonIcon />
           </Flex>
         </Flex>
       </Flex>

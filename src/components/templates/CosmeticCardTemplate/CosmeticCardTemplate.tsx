@@ -7,16 +7,13 @@ import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 import { useSelector } from "react-redux";
 import { CosmeticsType } from "../../../api/interfaces/Cosmetics";
 
-//TODO set Props considering an array of Cards
 type CosmeticCardTemplateProps = {
   title: string;
 };
 
-const CosmeticCardTemplate: React.FC<CosmeticCardTemplateProps> = ({
-  title,
-}) => {
+const CosmeticCardTemplate = ({ title }: CosmeticCardTemplateProps) => {
   const cards: Cosmetic[] = useSelector(
-    (state: any) => state.cosmeticsConfig.cosmetics
+    (state: any) => state.cosmeticsConfig.latestCosmetics
   );
   const [customCards, setCustomCards] = useState<Cosmetic[]>([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +23,6 @@ const CosmeticCardTemplate: React.FC<CosmeticCardTemplateProps> = ({
   );
   useEffect(() => {
     setCustomCards(cards);
-    console.log("entro");
   }, [cards]);
   const [currentFilter, setCurrentFilter] = useState<string[]>([]);
   const handleChipClick = (value: string) => {
@@ -86,6 +82,8 @@ const CosmeticCardTemplate: React.FC<CosmeticCardTemplateProps> = ({
             card.name === "null" ||
             card.description === "null" ? null : (
               <CosmeticCard
+                id={card.id}
+                bg="transparent"
                 key={`card-${index}`}
                 imgSrc={card.image}
                 imgAlt={card.name.replace(/\s/g, "_")}

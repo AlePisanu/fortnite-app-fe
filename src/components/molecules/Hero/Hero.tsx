@@ -6,18 +6,18 @@ interface HeroProps {
   title: string;
   btnText: string;
   onPress: Function;
-  textPosition: 'flex-start' | 'flex-end' | 'center';
-  btnPosition: 'flex-start' | 'flex-end' | 'center';
+  textPosition: "flex-start" | "flex-end" | "center";
+  btnPosition: "flex-start" | "flex-end" | "center";
 }
 
-const Hero: React.FC<HeroProps> = ({
+const Hero = ({
   backgroundImage,
   title,
   btnText,
   onPress,
-  btnPosition = 'flex-start',
-  textPosition = 'flex-start',
-}) => {
+  btnPosition = "flex-start",
+  textPosition = "flex-start",
+}: HeroProps) => {
   return (
     <Box
       bgImage={`url(${backgroundImage})`}

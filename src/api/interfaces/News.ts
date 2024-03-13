@@ -37,6 +37,7 @@ export interface NewsMotd {
   tileImage: string;
   sortingPriority: number;
   hidden: boolean;
+  date?: string;
 }
 
 export interface NewsMessage {

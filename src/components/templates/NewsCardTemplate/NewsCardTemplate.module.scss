@@ -3,6 +3,7 @@
     transition: max-height .5s;
     height: 100%;
     max-height: 400px;
+
     &::after {
         content: "";
         position: absolute;
@@ -10,13 +11,14 @@
         bottom: 0;
         height: 50px;
         width: 100%;
-        box-shadow: inset 0px -32px 19px -14px rgba(0,0,0,0.4);
+        box-shadow: inset 0px -32px 19px -14px rgba(0, 0, 0, 0.4);
         border-radius: 10px;
     }
 }
 
 .CosmeticCardTemplateGridOpen {
     max-height: 6000px;
+
     &::after {
         content: "";
         display: none;

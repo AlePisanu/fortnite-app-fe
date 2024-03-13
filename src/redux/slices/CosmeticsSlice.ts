@@ -6,13 +6,15 @@ import { CosmeticsType } from "../../api/interfaces/Cosmetics";
 interface CosmeticInitialState {
   cosmetics: Cosmetic[];
   latestCosmetics: Cosmetic[];
-  cosmeticsCategory: CosmeticsType[],
+  cosmeticsCategory: CosmeticsType[];
+  favoritesCosmetics: string[];
 }
 
 const initialState: CosmeticInitialState = {
   cosmetics: [],
   latestCosmetics: [],
-  cosmeticsCategory: []
+  cosmeticsCategory: [],
+  favoritesCosmetics: [],
 };
 
 export const cosmeticsConfigSlice = createSlice({
@@ -20,16 +22,20 @@ export const cosmeticsConfigSlice = createSlice({
   initialState,
   reducers: {
     setCosmeticsCategories: (state, action) => {
-      state.cosmeticsCategory = mapCosmeticsCategories(action.payload)
+      state.cosmeticsCategory = mapCosmeticsCategories(action.payload);
     },
     setCosmetics: (state, action) => {
-      state.cosmetics = mapCosmetics(action.payload)
+      state.cosmetics = mapCosmetics(action.payload);
     },
     setLatestCosmetics: (state, action) => {
-      state.cosmetics = mapCosmetics(action.payload)
+      state.latestCosmetics = mapCosmetics(action.payload);
     },
-    reset: () => initialState
-  }
+    setFavoritesCosmetics: (state, action) => {
+      localStorage.setItem("favoritesCosmetics", JSON.stringify(action.payload));
+      state.favoritesCosmetics = action.payload;
+    },
+    reset: () => initialState,
+  },
 });
 
 // ACTION
@@ -37,7 +43,8 @@ export const {
   setCosmeticsCategories,
   setCosmetics,
   setLatestCosmetics,
-  reset
+  reset,
+  setFavoritesCosmetics,
 } = cosmeticsConfigSlice.actions;
 
 // REDUCER

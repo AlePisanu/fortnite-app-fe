@@ -18,4 +18,3 @@ export async function getData<T>(url: string): Promise<T> {
     throw new Error(`Error fetching data: ${error}`);
   }
 }
-
