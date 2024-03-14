@@ -43,16 +43,14 @@ const CosmeticsTemplate = ({ titleFavorite }: CosmeticPageTemplateProps) => {
         setPrefferedCosmetics(
           filterCosmeticsByIds(mappedCosmetics, favoritesCosmetics)
         );
-        console.log(prefferedCosmetics, favoritesCosmetics, mappedCosmetics);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error(error);
       } finally {
         setIsLoading(false);
       }
     };
 
     getApiData();
-    console.log("entro");
   }, [i18n.language]);
 
   useEffect(() => {

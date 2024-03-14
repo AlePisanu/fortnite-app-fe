@@ -56,7 +56,6 @@ const DataLoader = () => {
         setIsLoading(false);
       }
     };
-    console.log(i18n.language)
     if (i18n.language) {
       getApiData();
     }

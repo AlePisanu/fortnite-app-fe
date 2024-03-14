@@ -16,8 +16,6 @@ export const MenuList: Menu[] = [
     }
 ]
 
-// export const NewsCategories = ["br", "creative", "stw"];
-
 export enum NewsCategories {
     BR = "br",
     CREATIVE = "creative",
