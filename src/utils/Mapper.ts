@@ -90,3 +90,7 @@ export const GetNewsCategoryName = (val: string): string => {
     ? "NewsCategoryCREATIVE"
     : "NewsCategoryND";
 };
+
+export const filterCosmeticsByIds = (cosmetics: Cosmetic[], idsToFilter: string[]): Cosmetic[] => {
+  return cosmetics.filter(cosmetic => idsToFilter.includes(cosmetic.id));
+};

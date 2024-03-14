@@ -1,23 +1,33 @@
 import { useEffect, useState } from "react";
-import { Box, Grid, Flex, Spinner } from "@chakra-ui/react";
+import { Box, Grid, Flex, Spinner, Heading } from "@chakra-ui/react";
 import SearchBar from "../../atoms/SearchBar/SearchBar";
 import { GetEndpoints } from "../../../api/endpoints";
 import { getData } from "../../../api/Api";
 import { ApiResponse } from "../../../api/interfaces/ApiResponse";
-import { mapCosmetics } from "../../../utils/Mapper";
+import { filterCosmeticsByIds, mapCosmetics } from "../../../utils/Mapper";
 import { Cosmetic } from "../../../utils/interfaces/Cosmetic.interface";
 import CosmeticCard from "../../atoms/CosmeticsCard/CosmeticCard";
 import { CosmeticsItem } from "../../../api/interfaces/Cosmetics";
 import Pagination from "../../atoms/Pagination/Pagination";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 
-const CosmeticsTemplate = () => {
+type CosmeticPageTemplateProps = {
+  titleFavorite: string;
+};
+
+const CosmeticsTemplate = ({ titleFavorite }: CosmeticPageTemplateProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [filteredItems, setFilteredItems] = useState<Cosmetic[]>([]);
   const [defaultData, setDefaultdata] = useState<Cosmetic[]>([]);
+  const [prefferedCosmetics, setPrefferedCosmetics] = useState<Cosmetic[]>([]);
   const [page, setPage] = useState(1);
   const itemsPerPage = 20;
   const { i18n } = useTranslation();
+
+  const favoritesCosmetics = useSelector(
+    (state: any) => state.cosmeticsConfig.favoritesCosmetics
+  );
 
   useEffect(() => {
     const getApiData = async () => {
@@ -30,6 +40,10 @@ const CosmeticsTemplate = () => {
         const mappedCosmetics = mapCosmetics(cosmeticsResponse.data);
         setDefaultdata(mappedCosmetics);
         setFilteredItems(mappedCosmetics.slice(0, itemsPerPage));
+        setPrefferedCosmetics(
+          filterCosmeticsByIds(mappedCosmetics, favoritesCosmetics)
+        );
+        console.log(prefferedCosmetics, favoritesCosmetics, mappedCosmetics);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
@@ -40,6 +54,12 @@ const CosmeticsTemplate = () => {
     getApiData();
     console.log("entro");
   }, [i18n.language]);
+
+  useEffect(() => {
+    setPrefferedCosmetics(
+      filterCosmeticsByIds(defaultData, favoritesCosmetics)
+    );
+  }, [favoritesCosmetics]);
 
   const handleSearch = (value: string) => {
     const filtered = defaultData.filter(
@@ -81,7 +101,7 @@ const CosmeticsTemplate = () => {
                 "repeat(1, 1fr)",
                 "repeat(2, 1fr)",
                 "repeat(3, 1fr)",
-                "repeat(3, 1fr)",
+                "repeat(5, 1fr)",
               ]}
               gap={6}
               overflow="hidden"
@@ -112,6 +132,54 @@ const CosmeticsTemplate = () => {
           </>
         )}
       </Flex>
+
+      {!isLoading && (
+        <>
+          <Heading
+            maxW={500}
+            as="h1"
+            size="xl"
+            mb={5}
+            fontFamily="Luckiest Guy"
+          >
+            {titleFavorite}
+          </Heading>
+          <Flex
+            justifyContent="center"
+            alignItems="center"
+            flexDirection="column"
+            mb={isLoading ? "30px" : "0"}
+          >
+            <Grid
+              templateColumns={[
+                "repeat(1, 1fr)",
+                "repeat(2, 1fr)",
+                "repeat(3, 1fr)",
+                "repeat(5, 1fr)",
+              ]}
+              gap={6}
+              overflow="hidden"
+            >
+              {prefferedCosmetics.map((card, index) =>
+                card.name === "TBD" ||
+                card.description === "TBD" ||
+                card.name === "null" ||
+                card.description === "null" ? null : (
+                  <CosmeticCard
+                    id={card.id}
+                    key={`card-${index}`}
+                    imgSrc={card.image}
+                    imgAlt={card.name.replace(/\s/g, "_")}
+                    action={() => true}
+                    title={card.name}
+                    description={card.description}
+                  />
+                )
+              )}
+            </Grid>
+          </Flex>
+        </>
+      )}
     </Box>
   );
 };

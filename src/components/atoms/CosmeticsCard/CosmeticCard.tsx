@@ -36,6 +36,12 @@ const CosmeticCard = ({
     }
   }, [id]);
 
+  useEffect(() => {
+    if (favoritesCosmetics) {
+      setIsFavorite(favoritesCosmetics.includes(id));
+    }
+  }, [favoritesCosmetics]);
+
   const handleToggleFavorite = () => {
     if (favoritesCosmetics.includes(id)) {
       const updatedFavorites = favoritesCosmetics.filter(
@@ -55,6 +61,7 @@ const CosmeticCard = ({
       boxShadow="none"
       onClick={() => action()}
       background={bg}
+      w="100%"
     >
       <CardBody p={bg || bg !== "transparent" ? "15px" : 0} objectFit="contain">
         <Image src={imgSrc} alt={imgAlt} borderRadius="lg" maxW="100px" />
