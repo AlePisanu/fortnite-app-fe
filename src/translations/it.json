@@ -18,5 +18,12 @@
   "NewsCategoryND": "N/D",
   "ArticleCategoryText": "Categoria: ",
   "NotFoundText": "Nessun risultato trovato.",
-  "FavoriteCosmetics": "Cosmetici preferiti"
+  "FavoriteCosmetics": "Cosmetici preferiti",
+  "SignInButton": "Login",
+  "SignUpButton": "Registrati",
+  "OtpButton": "Invia Otp (conferma)",
+  "SignUpText": "Registrati ora",
+  "LoginError": "Errore durante la login",
+  "LoggedIn": "Sei loggato",
+  "NavbarSignOutBtn": "LogOut"
 }

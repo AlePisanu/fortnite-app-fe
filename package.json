@@ -15,6 +15,7 @@
     "@types/node": "^16.18.87",
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
+    "aws-amplify": "^6.0.20",
     "framer-motion": "^11.0.8",
     "i18next": "^23.10.1",
     "react": "^18.2.0",

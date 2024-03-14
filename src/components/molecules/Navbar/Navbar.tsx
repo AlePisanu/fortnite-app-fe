@@ -7,17 +7,37 @@ import {
   IconButton,
   Box,
 } from "@chakra-ui/react";
-import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
+import {
+  HamburgerIcon,
+  CloseIcon,
+  MoonIcon,
+  SunIcon,
+  ExternalLinkIcon,
+} from "@chakra-ui/icons";
 import { Link, useLocation } from "react-router-dom";
 import { MenuList } from "../../../utils/Constants";
 import Logo from "../../atoms/Logo/Logo";
 import LangSwitch from "../../atoms/LangSwitch/LangSwitch";
+import { useTranslation } from "react-i18next";
+import { signOut } from "@aws-amplify/auth";
+import { useDispatch } from "react-redux";
+import { setLogged } from "../../../redux/slices/LoginSlice";
 
 const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const isDark = colorMode === "dark";
   const [display, changeDisplay] = useState("none");
   const location = useLocation();
+  const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+      dispatch(setLogged(false));
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <Box
       width="100%"
@@ -65,6 +85,13 @@ const Navbar = () => {
             <MoonIcon />
           </Flex>
           <LangSwitch />
+          <IconButton
+            ml={5}
+            aria-label="Log out"
+            size="lg"
+            icon={<ExternalLinkIcon />}
+            onClick={() => handleSignOut()}
+          />
         </Flex>
 
         {/* Mobile */}
@@ -130,6 +157,13 @@ const Navbar = () => {
             </Link>
           ))}
           <LangSwitch />
+          <IconButton
+            mt={5}
+            aria-label="Log out"
+            size="lg"
+            icon={<ExternalLinkIcon />}
+            onClick={() => handleSignOut()}
+          />
         </Flex>
       </Flex>
     </Box>
