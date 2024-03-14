@@ -9,7 +9,7 @@ const LangSwitch = () => {
   useEffect(() => {
     const isEn = i18n.language === "en";
     setLang(isEn);
-  }, []);
+  }, [i18n.language]);
   const toggleLang = () => {
     const newLanguage = i18n.language === "en" ? "it" : "en";
     i18n.changeLanguage(newLanguage);

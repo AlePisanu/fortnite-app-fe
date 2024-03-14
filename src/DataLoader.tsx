@@ -56,8 +56,10 @@ const DataLoader = () => {
         setIsLoading(false);
       }
     };
-
-    getApiData();
+    console.log(i18n.language)
+    if (i18n.language) {
+      getApiData();
+    }
   }, [dispatch, onOpen, i18n.language]);
 
   return (
